@@ -1,7 +1,7 @@
 import { MainStackNavigator, BaStackNavigator, RsStackNavigator, MeStackNavigator, HrStackNavigator, SiStackNavigator, MkStackNavigator, FaStackNavigator } from './StackNavigator';
 const DrawerItems = [
   { id: 0, label: 'Sve radio stanice', icon: 'radio', iconType: 'MaterialIcons', routeName: 'Sve radio stanice', routeComponent:  MainStackNavigator },
-  { id: 1, label: 'Vaše omiljene radio stanice', icon: 'favorite-outline', iconType: 'MaterialIcons', routeName: 'Bosna i Hercegovina', routeComponent: FaStackNavigator },
+  { id: 1, label: 'Vaše omiljene radio stanice', icon: require('../../assets/flags/fa2.png'), iconType: 'flag', routeName: 'Vaše omiljene radio stanice', routeComponent: FaStackNavigator },
   { id: 2, label: 'Bosna i Hercegovina', icon: require('../../assets/flags/ba.png'), iconType: 'flag', routeName: 'Bosna i Hercegovina', routeComponent: BaStackNavigator  },
   { id: 3, label: 'Srbija', icon: require('../../assets/flags/rs.png'), iconType: 'flag', routeName: 'Srbija', routeComponent: RsStackNavigator },
   { id: 4, label: 'Hrvatska', icon: require('../../assets/flags/hr.png'), iconType: 'flag', routeName: 'Hrvatska', routeComponent: HrStackNavigator },

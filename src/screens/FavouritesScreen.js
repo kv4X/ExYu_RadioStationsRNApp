@@ -23,9 +23,9 @@ import config from '../api/config';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useIsFocused } from '@react-navigation/native';
+import SyncStorage from 'sync-storage';
 
 const activeUrl = config.getActiveConfigUrl();
-
 const RadioItem = ({radio}) => {
   const { isPlaying, setIsPlaying, currentRadio, setCurrentRadio } = React.useContext(PlayerContext);
   const {colors} = useTheme();
@@ -84,14 +84,19 @@ export default class FavouritesScreen extends React.Component {
     this.state = { isLoading: true, search: '' };
     this.arrayholder = [];
   }
-  
-  async componentDidMount() {
+  async UNSAFE_componentWillMount(){
+    //await AsyncStorage.clear();
+
+    const data = await SyncStorage.init();
+   }
+  async componentMount() {
     //HELPED: https://stackoverflow.com/questions/50290818/react-navigation-detect-when-screen-tabbar-is-activated-appear-focus-blu
     const { navigation } = this.props;
     var str;
     this.focusListener = navigation.addListener("focus", async () => {
       RNBootSplash.hide({ duration: 250 });
-      let favouriteIDs = await AsyncStorage.getItem('favourites');
+     // let favouriteIDs = await AsyncStorage.getItem('favourites2');
+      let favouriteIDs = SyncStorage.get('favourites2');
       if(favouriteIDs !== null){
         favouriteIDs = JSON.parse(favouriteIDs);
         var length = favouriteIDs.length;
@@ -107,7 +112,7 @@ export default class FavouritesScreen extends React.Component {
       }
 
       if(str != 0){
-        return fetch(activeUrl+'/getRS.php?ids='+str)
+        fetch(activeUrl+'/getRS.php?ids='+str)
           .then(response => response.json())
           .then(responseJson => {
           // console.log(responseJson.data),

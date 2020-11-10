@@ -68,5 +68,3 @@ export default function Main() {
 AppRegistry.registerComponent(appName, () => Main);
 TrackPlayer.registerPlaybackService(() => require('./src/components/PlayerHandler'));
 
-
-//https://snack.expo.io/@kvax/b97b9f?&preview=true&platform=ios&iframeId=kbfguu8z7y&theme=dark

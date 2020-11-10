@@ -170,7 +170,7 @@ const FaStackNavigator = () => {
       <Stack.Screen 
         options={{
           type: "image",
-          image: require('../../assets/flags/mk.png')
+          image: require('../../assets/flags/fa2.png')
         }}
         name="Vaše omiljene radio stanice" component={FavouritesScreen} />
     </Stack.Navigator>

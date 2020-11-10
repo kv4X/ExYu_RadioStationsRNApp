@@ -5,6 +5,7 @@ const PlayerContext = React.createContext();
 const PlayerProvider = (props) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentRadio, setCurrentRadio] = useState(null);
+  const [isFavourite, setIsFavourite] = useState(false);
   const [playbackState, setPlaybackState] = useState(null);
   const [currentSong, setCurrentSong] = useState(null);
   const [timer, setTimer] = useState(null);
@@ -23,7 +24,9 @@ const PlayerProvider = (props) => {
         timer,
         setTimer,
         isPickerOpened,
-        setIsPickerOpened
+        setIsPickerOpened,
+        isFavourite,
+        setIsFavourite
       }}
     >
       {props.children}

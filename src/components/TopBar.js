@@ -7,10 +7,14 @@ export const TopBar = () => {
 
   if (isConnected) {
     return (
+      <></>
+    );
+    /*return (
       <View style={[styles.container, {backgroundColor: 'green'}]}>
         <Text style={styles.text}> Connected</Text>
       </View>
     );
+    */
   }
 
   useEffect(() => {
